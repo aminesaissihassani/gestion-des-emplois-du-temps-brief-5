@@ -47,7 +47,7 @@ class Database
     # Bind values
     public function bind($param, $value, $type = null)
     {
-        if (isnull($type))
+        if (is_null($type))
         {
             switch(true)
             {
