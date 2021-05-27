@@ -194,6 +194,7 @@ class Users extends Controller
                     $_SESSION['user_first_name'] = $loggedInUser->first_name;
                     $_SESSION['user_last_name'] = $loggedInUser->last_name;
                     $_SESSION['user_email'] = $loggedInUser->email;
+                    $_SESSION['user_type'] = $loggedInUser->type;
 
                     redirect('pages/index');
                 }
@@ -225,6 +226,30 @@ class Users extends Controller
 
             # Load view
             $this->view('users/login', $data);
+        }
+    }
+
+    public function logout()
+    {
+        unset($_SESSION['user_id']);
+        unset($_SESSION['user_first_name']);
+        unset($_SESSION['user_last_name']);
+        unset($_SESSION['user_email']);
+        unset($_SESSION['user_type']);
+        session_destroy();
+
+        redirect('users/login');
+    }
+
+    public function isLoggedIn()
+    {
+        if(isset($_SESSION['user_id']))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 

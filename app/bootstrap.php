@@ -2,6 +2,9 @@
 # Load Config
 require_once 'config/config.php';
 
+# Start session
+session_start();
+
 # Load Helpers
 require_once 'helpers/url_helper.php';
 

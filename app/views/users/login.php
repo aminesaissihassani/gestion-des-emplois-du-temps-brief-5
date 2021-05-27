@@ -2,7 +2,7 @@
 <div class="row">
     <div class="col-md-6 mx-auto">
         <div class="card card-body bg-light mt-5">
-            <h2>Create An Account</h2>
+            <h2>Login</h2>
             <p>Please fill in the email and password to log in</p>
             <form action="<?php echo URLROOT; ?>/users/login" method="post">
                 <div class="form-group">
