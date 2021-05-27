@@ -1,7 +1,7 @@
 <IfModule mod_rewrite.c>
     Options -Multiviews
     RewriteEngine On
-    RewriteBase /tramvc/public
+    RewriteBase /gestion-des-emplois-du-temps-brief-5/public
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]

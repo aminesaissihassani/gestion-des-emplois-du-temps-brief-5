@@ -4,7 +4,7 @@ class Pages extends Controller
 {
     public function __construct()
     {
-        echo 'done';
+        
     }
 
     public function index()
@@ -25,6 +25,7 @@ class Pages extends Controller
             'title' => 'About Us',
             'description' => 'YourClass is a website founded in 2021 at YouCode to orgonize classes in centers',
         ];
+
         $this->view('pages/about', $data);
     }
 }
