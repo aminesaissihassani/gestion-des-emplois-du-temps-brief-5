@@ -12,7 +12,7 @@ class User
     # Regiter User
     public function register($data)
     {
-        $this->db->query('INSERT INTO user (first_name, last_name, email, password, type) VALUES(:first_name, :last_name, :email, :password, 1)');
+        $this->db->query('INSERT INTO users (first_name, last_name, email, password, type) VALUES(:first_name, :last_name, :email, :password, 1)');
         
         # Bind values
         $this->db->bind(':first_name', $data['first_name']);
@@ -34,7 +34,7 @@ class User
     # Login User
     public function login($email, $password)
     {
-        $this->db->query('SELECT * FROM user WHERE email = :email');
+        $this->db->query('SELECT * FROM users WHERE email = :email');
         $this->db->bind(':email', $email);
 
         $row = $this->db->single();
@@ -53,7 +53,7 @@ class User
     # Find user by email
     public function findUserByEmail($email)
     {
-        $this->db->query('SELECT * FROM user WHERE email = :email');
+        $this->db->query('SELECT * FROM users WHERE email = :email');
         $this->db->bind(':email', $email);
 
         $row = $this->db->single();
@@ -62,6 +62,23 @@ class User
         if($this->db->rowCount() > 0)
         {
             return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public function getTeacherId($id_user)
+    {
+        $this->db->query('SELECT teachers.id FROM teachers WHERE teachers.id_user = :id_user');
+        $this->db->bind(':id_user', $id_user);
+
+        $row = $this->db->single();
+
+        if($this->db->rowCount() > 0)
+        {
+            return $row;
         }
         else
         {

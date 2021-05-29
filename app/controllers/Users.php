@@ -9,6 +9,13 @@ class Users extends Controller
 
     public function register()
     {
+        # Check if he is already loged in
+        if(isset($_SESSION['user_id']))
+        {
+            redirect('pages/index');
+            return;
+        }
+
         # Check for POST
         if ($_SERVER['REQUEST_METHOD'] == 'POST')
         {
@@ -98,7 +105,6 @@ class Users extends Controller
 
                 if($this->userModel->register($data))
                 {
-                    flash('register_success', 'You are registered and can log in');
                     redirect('users/login');
                 }
                 else
@@ -139,6 +145,13 @@ class Users extends Controller
 
     public function login()
     {
+        # Check if he is already loged in
+        if(isset($_SESSION['user_id']))
+        {
+            redirect('pages/index');
+            return;
+        }
+
         # Check for POST
         if ($_SERVER['REQUEST_METHOD'] == 'POST')
         {
@@ -195,7 +208,16 @@ class Users extends Controller
                     $_SESSION['user_last_name'] = $loggedInUser->last_name;
                     $_SESSION['user_email'] = $loggedInUser->email;
                     $_SESSION['user_type'] = $loggedInUser->type;
-
+                    if($_SESSION['user_type'] == 1)
+                    {
+                        $_SESSION['teacher_id'] = $this->userModel->getTeacherId($_SESSION['user_id']);
+                        if($_SESSION['teacher_id'] == false)
+                        {
+                            redirect('dashboard/profile');
+                            return;
+                        }
+                        $_SESSION['teacher_id']= $_SESSION['teacher_id']->id;
+                    }
                     redirect('pages/index');
                 }
                 else
@@ -231,6 +253,12 @@ class Users extends Controller
 
     public function logout()
     {
+        if(!isset($_SESSION['user_id']))
+        {
+            redirect('pages/index');
+            return;
+        }
+
         unset($_SESSION['user_id']);
         unset($_SESSION['user_first_name']);
         unset($_SESSION['user_last_name']);
