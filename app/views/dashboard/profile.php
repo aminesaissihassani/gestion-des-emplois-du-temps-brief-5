@@ -7,7 +7,7 @@
             <form action="<?php echo URLROOT; ?>/teachers/save" method="post">
                 <div class="form-group">
                     <label for="subject">Subject: <sup>*</sup></label>
-                    <select name="subject" id="subject">
+                    <select name="subject" id="subject" class="form-select">
                         <?php foreach($data as $row): ?>
                         <option value="<?php echo $row->id ?>"><?php echo $row->name ?></option>
                         <?php endforeach; ?>

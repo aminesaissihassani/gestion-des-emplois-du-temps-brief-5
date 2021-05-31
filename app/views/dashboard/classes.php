@@ -9,7 +9,7 @@
                 <div class="form-group">
                     <label for="group_name">Group: </label>
                     <select name="group_name" id="group_name" class="form-select">
-                        <?php foreach($this->classeModel->getGroups() as $group): ?>
+                        <?php foreach($this->classeModel->getGroupsByTeacher($_SESSION['teacher_id']) as $group): ?>
                         <option value="<?php echo $group->id ?>"><?php echo $group->name ?></option>
                         <?php endforeach; ?>
                     </select>

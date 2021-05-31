@@ -264,6 +264,7 @@ class Users extends Controller
         unset($_SESSION['user_last_name']);
         unset($_SESSION['user_email']);
         unset($_SESSION['user_type']);
+        unset($_SESSION['teacher_id']);
         session_destroy();
 
         redirect('users/login');
@@ -281,13 +282,8 @@ class Users extends Controller
         }
     }
 
-    public function createUserSession($user)
+    public function profile()
     {
-        $_SESSION['user_id'] = $user->id;
-        $_SESSION['user_first_name'] = $user->first_name;
-        $_SESSION['user_last_name'] = $user->last_name;
-        $_SESSION['user_email'] = $user->email;
-
-        redirect('pages/index');
+        
     }
 }

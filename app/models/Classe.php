@@ -95,7 +95,8 @@ class Classe
             FROM classes, rooms, groups, users
             WHERE :teacher_id = classes.id_teacher 
             AND users.id = :user_id
-            AND groups.id = classes.id_group');
+            AND groups.id = classes.id_group
+            AND rooms.id = classes.id_room');
             $this->db->bind(':teacher_id', $teacher_id->id_teacher);
             $this->db->bind(':user_id', $user_id);
 
