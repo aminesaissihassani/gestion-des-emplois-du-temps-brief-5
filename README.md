@@ -2,4 +2,4 @@
 
 
 
-<img src="conception/diagram Class.png">
+<img src="conception/Diagram Class.png">
