@@ -28,7 +28,7 @@ class Dashboard extends Controller
         $rooms = $this->classeModel->getRooms();
 
         $this->view('dashboard/classes', $data);
-        $this->view('dashboard/classes', $this->classeModel->getGroupsByTeacher($_SESSION['teacher_id']));
+        $this->view('dashboard/classes', $this->classeModel->getGroups());
         $this->view('dashboard/classes', $this->classeModel->getRooms());
     }
 

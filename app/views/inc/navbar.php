@@ -14,22 +14,22 @@
             <a class="nav-link" href="<?php echo URLROOT; ?>/pages/about">About</a>
         </li>
         <?php if(isset($_SESSION['user_id'])): ?>
-        <?php if($_SESSION['user_type'] == 1): ?>
-        <li class="nav-item">
-            <a class="nav-link" href="<?php echo URLROOT; ?>/dashboard/classes">Classes</a>
-        </li>
-        <?php endif; ?>
-        <?php if($_SESSION['user_type'] == 0): ?>
-        <li class="nav-item">
-            <a class="nav-link" href="<?php echo URLROOT; ?>/dashboard/groups">Groups</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="<?php echo URLROOT; ?>/dashboard/rooms">Rooms</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="<?php echo URLROOT; ?>/dashboard/subjects">Subjects</a>
-        </li>
-        <?php endif; ?>
+            <?php if($_SESSION['user_type'] == 1): ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo URLROOT; ?>/dashboard/classes">Classes</a>
+                </li>
+            <?php endif; ?>
+            <?php if($_SESSION['user_type'] == 0): ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo URLROOT; ?>/dashboard/groups">Groups</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo URLROOT; ?>/dashboard/rooms">Rooms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo URLROOT; ?>/dashboard/subjects">Subjects</a>
+                </li>
+            <?php endif; ?>
         <?php endif; ?>
         </ul>
         

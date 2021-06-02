@@ -281,9 +281,4 @@ class Users extends Controller
             return false;
         }
     }
-
-    public function profile()
-    {
-        
-    }
 }
